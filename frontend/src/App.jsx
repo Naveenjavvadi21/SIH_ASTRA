@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
 import Overview from './pages/Overview';
 import LiveOperations from './pages/LiveOperations';
@@ -36,7 +36,7 @@ export default function App() {
   const { isConnected } = useWebSocket(handleGlobalWSMessage);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/"
@@ -60,6 +60,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
